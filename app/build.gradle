@@ -60,3 +60,5 @@ tasks.named('test') {
 
 task stage(dependsOn: ['shadowJar'])
 shadowJar.mustRunAfter clean
+
+
