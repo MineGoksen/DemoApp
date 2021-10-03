@@ -12,8 +12,8 @@ import java.util.Map;
 
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
-
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class App {
     public static double averageOfIndex(ArrayList<Integer> arr1, ArrayList<Integer> arr2, Integer index1, Integer index2) throws Exception{
@@ -31,6 +31,12 @@ public class App {
       }
 
       public static void main(String[] args) {
+
+        Logger logger = LogManager.getLogger(App.class);
+
+        int port = Integer.parseInt(System.getenv("PORT"));
+        port(port);
+        logger.error("Current port number:" + port);
 
         port(getHerokuAssignedPort());
           get("/", (req, res) -> "Hello, World");
