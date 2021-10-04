@@ -16,26 +16,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class App {
-    public static double averageOfIndex(ArrayList<Integer> arr1, ArrayList<Integer> arr2, Integer index1, Integer index2) throws Exception{
-
-        
+    public static double averageOfIndex(ArrayList<Integer> arr1, ArrayList<Integer> arr2, Integer index1, Integer index2) throws Exception{  
         if(arr1==null|| arr2==null || arr1.isEmpty() || arr2.isEmpty())
           throw new NullPointerException("Null Pointer Exception");
         else if(index1.intValue()<0 || index2.intValue()<0 )
           throw new Exception("Negative Index");
         else if(index1.intValue()>arr1.size() || index2.intValue()>arr2.size() )
           throw new IndexOutOfBoundsException("Index out ouf bounds");
-   
         return (double)(arr1.get(index1) + arr2.get(index2))/2.0;
       
       }
    
       public static void main(String[] args) {
-        Logger logger = LogManager.getLogger(App.class.getName());  
+        /*Logger logger = LogManager.getLogger(App.class.getName());  
         int port = Integer.parseInt(System.getenv("PORT"));
         port(port);   
         
-        logger.error("Current port number:" + port);
+        logger.error("Current port number:" + port);*/
 
         port(getHerokuAssignedPort());
           get("/", (req, res) -> "Hello, World");
