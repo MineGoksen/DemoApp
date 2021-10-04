@@ -16,7 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class App {
-    public static double averageOfIndex(ArrayList<Integer> arr1, ArrayList<Integer> arr2, Integer index1, Integer index2) throws Exception{  
+    public static double averageOfIndexes(ArrayList<Integer> arr1, ArrayList<Integer> arr2, Integer index1, Integer index2) throws Exception{  
         if(arr1==null|| arr2==null || arr1.isEmpty() || arr2.isEmpty())
           throw new NullPointerException("Null Pointer Exception");
         else if(index1.intValue()<0 || index2.intValue()<0 )
@@ -30,13 +30,11 @@ public class App {
       public static void main(String[] args) {
         /*Logger logger = LogManager.getLogger(App.class.getName());  
         int port = Integer.parseInt(System.getenv("PORT"));
-        port(port);   
-        
+        port(port);         
         logger.error("Current port number:" + port);*/
 
         port(getHerokuAssignedPort());
           get("/", (req, res) -> "Hello, World");
-  
           post("/compute", (req, res) -> {
             //System.out.println(req.queryParams("input1"));
             //System.out.println(req.queryParams("input2"));
@@ -77,7 +75,7 @@ public class App {
             String input4 = req.queryParams("input4").replaceAll("\\s","");
             Integer input4AsInt = Integer.parseInt(input4);
   
-            double result = App.averageOfIndex(inputList1,inputList2 , input3AsInt, input4AsInt);
+            double result = App.averageOfIndexes(inputList1,inputList2 , input3AsInt, input4AsInt);
   
             Map<String, Double> map = new HashMap<String, Double>();
             map.put("result", result);
