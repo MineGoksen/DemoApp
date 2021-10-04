@@ -21,7 +21,8 @@ plugins {
 
 repositories {
     // Use Maven Central for resolving dependencies.
-    mavenCentral()
+    //mavenCentral()
+    jcenter()
 }
 
 dependencies {

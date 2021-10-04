@@ -29,12 +29,12 @@ public class App {
         return (double)(arr1.get(index1) + arr2.get(index2))/2.0;
       
       }
-
+   
       public static void main(String[] args) {
-
-        Logger logger = LogManager.getLogger("app/bin/main/DemoApp/App.class");
-        int port = Integer.valueOf(System.getenv("PORT"));
-        port(port);
+        Logger logger = LogManager.getLogger(App.class.getName());  
+        int port = Integer.parseInt(System.getenv("PORT"));
+        port(port);   
+        
         logger.error("Current port number:" + port);
 
         port(getHerokuAssignedPort());
@@ -105,6 +105,5 @@ public class App {
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
-
 
 }
